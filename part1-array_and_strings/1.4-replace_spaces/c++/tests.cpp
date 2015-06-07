@@ -12,24 +12,24 @@ using namespace std;
 TEST(CalculateLength, Simplest) {
 
 // the simplest case:
-ASSERT_EQ(6, calculate_length("abcdef"));
+ASSERT_EQ(6, calculate_after_replacement_length("abcdef"));
 
 // heading spaces
-ASSERT_EQ(6, calculate_length("    abcdef"));
+ASSERT_EQ(6, calculate_after_replacement_length("    abcdef"));
 
 // middle space
-ASSERT_EQ(9, calculate_length("abc def"));
+ASSERT_EQ(9, calculate_after_replacement_length("abc def"));
 
 // middle spaces
-ASSERT_EQ(9, calculate_length("abc  def"));
+ASSERT_EQ(9, calculate_after_replacement_length("abc  def"));
 
 // middle spaces
-ASSERT_EQ(15, calculate_length("abc  def    fgh"));
+ASSERT_EQ(15, calculate_after_replacement_length("abc  def    fgh"));
 }
 
 TEST(CalculateLength, Tailing) {
 //tailing spaces
-ASSERT_EQ(15, calculate_length("abc  def    fgh     "));
+ASSERT_EQ(15, calculate_after_replacement_length("abc  def    fgh     "));
 
 }
 
@@ -85,7 +85,7 @@ TEST(FindLengthAndReplace, MultipleSpaces) {
 //tailing spaces
 char arr[100] = "  abc   def  asdfasdf asdf a asdf asd asdf   ";
 
-    replace_spaces(arr, calculate_length(arr));
+    replace_spaces(arr, calculate_after_replacement_length(arr));
 EXPECT_EQ(0, strcmp(arr, "abc%20def%20asdfasdf%20asdf%20a%20asdf%20asd%20asdf")) << "Output:" << arr <<endl;
 }
 

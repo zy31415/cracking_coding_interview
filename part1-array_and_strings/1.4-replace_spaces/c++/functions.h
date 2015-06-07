@@ -3,7 +3,7 @@
 
 #define DEFAULT_BUFFER_SIZE 100  // default buffer size for replace_spaces funtion.
 
-int calculate_length(const char* arr);
+int calculate_after_replacement_length(const char *arr);
 
 int replace_spaces(char *arr, int buffer_size = DEFAULT_BUFFER_SIZE);
 
