@@ -3,7 +3,7 @@ project(replace_spaces)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp functions.cpp tests.cpp)
+set(SOURCE_FILES gtest_main.cpp functions.cpp tests.cpp)
 
 include_directories("/home/zy/programs/gtest/include/")
 

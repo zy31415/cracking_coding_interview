@@ -1,0 +1,19 @@
+Replace spaces
+Problem description:
+Write a method to replace all spaces in a string with'%20'. You may assume that
+the string has sufficient space at the end of the string to hold the additional
+characters, and that you are given the "true" length of the string.
+(Note: if implementing in Java, please use a character array so that you can
+perform this operation in place.)
+EXAMPLE
+Input:  "Mr John Smith    "
+Output: "Mr%20Dohn%20Smith"
+
+My response:
+I made two assumptions here:
+1. Ignore heading and trailing spaces;
+2. Consecutive spaces are treated as a single one.
+
+My method uses a buffer string to help the manipulation, thus it is NOT in-place.
+The algorithm provided by the book is in-place and it didn't make the assumptions that I made.
+The trick for this in-place algorithm is that it edits the string starting from the end and work backwards.
