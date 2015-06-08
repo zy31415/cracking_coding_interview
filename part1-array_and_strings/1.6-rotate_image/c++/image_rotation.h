@@ -8,12 +8,13 @@
 #include<stdint.h>
 
 #define pixel uint32_t
+#define image_size unsigned
 
 struct Image {
     pixel* head;
-    const int N;
+    const image_size N;
 
-    Image(const int N); // Initialize an Image object with size N*N.
+    Image(const image_size N); // Initialize an Image object with size N*N.
     Image(const Image& image); // Copy constructor.
 
     ~Image();

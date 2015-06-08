@@ -8,7 +8,10 @@
 
 using namespace std;
 
-Image::Image(const int N) : N(N){
+Image::Image(const image_size N) : N(N){
+    if (N <= 0)
+        throw invalid_argument("Size should be positive.");
+
     head = new pixel[N*N];
 }
 

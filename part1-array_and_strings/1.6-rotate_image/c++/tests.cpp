@@ -1,10 +1,24 @@
 #include <gtest/gtest.h>
 #include "image_rotation.h"
+#include <stdexcept>
+using namespace std;
 
 TEST(Image, Initilization){
-Image image(2);
-generate_image(image);
+Image image1(20);
+generate_image(image1);
+
+ASSERT_THROW(
+{Image image2(0);},
+invalid_argument
+);
+
+ASSERT_THROW(
+{Image image2(-1);},
+invalid_argument
+);
+
 }
+
 
 TEST(Image, CopyConstructor){
 Image image1(2);
@@ -58,6 +72,21 @@ Image image0 = image;
 // rotate four times should get the same image.
 for (int i=0; i<4; i++)
     rotate_image(image);
+
+ASSERT_TRUE(image0 == image);
+
+}
+
+
+TEST(Image, RotationSizeOne){
+Image image(1);
+generate_image(image);
+
+Image image0 = image;
+
+// rotate four times should get the same image.
+for (int i=0; i<4; i++)
+rotate_image(image);
 
 ASSERT_TRUE(image0 == image);
 
