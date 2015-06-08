@@ -8,7 +8,7 @@
 
 using namespace std;
 
-Image::Image(const image_size N) : N(N){
+Image::Image(const int N) : N(N){
     if (N <= 0)
         throw invalid_argument("Size should be positive.");
 
@@ -83,4 +83,18 @@ void rotate_image(Image& image) {
             image(N - 1 - ii ,N - 1 - jj) = image(N - 1 - jj ,ii);
             image(N - 1 - jj, ii) = tp;
         }
+}
+
+void rotate_image_recursive(Image& image, int jj){
+    image_size N = image.N;
+    if (jj < (N-1.)/2.){
+        for (int ii = jj; ii < N-1.-jj; ii++) {
+            pixel tp = image(ii,jj);
+            image(ii,jj) = image(jj, N-1-ii);
+            image(jj ,N - 1 - ii) = image(N - 1 - ii, (N - 1 - jj));
+            image(N - 1 - ii ,N - 1 - jj) = image(N - 1 - jj ,ii);
+            image(N - 1 - jj, ii) = tp;
+        }
+        rotate_image_recursive(image, jj+1);
+    }
 }

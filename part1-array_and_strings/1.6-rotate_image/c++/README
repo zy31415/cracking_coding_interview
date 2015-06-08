@@ -1,0 +1,15 @@
+1.6 - Image Rotation:
+Given an image represented by an NxN matrix, where each pixel in the image is
+4 bytes, write a method to rotate the image by 90 degrees. Can you do this in
+place?
+
+Answer:
+I implement two methods:
+1. Non-recursive method;
+2. Recursive method.
+
+In-place: Yes
+Time complexity - O(N^2)
+Space complexity - O(N^2)
+where N is the dimension of the matrix.
+

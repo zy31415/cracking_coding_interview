@@ -11,12 +11,13 @@ ASSERT_THROW(
 {Image image2(0);},
 invalid_argument
 );
+}
 
+TEST(Image, Initilization2){
 ASSERT_THROW(
 {Image image2(-1);},
 invalid_argument
 );
-
 }
 
 
@@ -87,6 +88,28 @@ Image image0 = image;
 // rotate four times should get the same image.
 for (int i=0; i<4; i++)
 rotate_image(image);
+
+ASSERT_TRUE(image0 == image);
+
+}
+
+TEST(Image, RotationRecursive1){
+Image image(3);
+generate_image(image);
+print_image(image);
+rotate_image_recursive(image);
+print_image(image);
+}
+
+TEST(Image, RotationRecursive2){
+Image image(20);
+generate_image(image);
+
+Image image0 = image;
+
+// rotate four times should get the same image.
+for (int i=0; i<4; i++)
+    rotate_image_recursive(image);
 
 ASSERT_TRUE(image0 == image);
 
