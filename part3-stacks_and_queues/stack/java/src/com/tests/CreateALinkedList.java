@@ -11,7 +11,7 @@ public class CreateALinkedList {
 
         Node p = head;
         for (int ii=1; ii<len; ii++)
-            p.appendToTail(new Node(ii));
+            p.appendToTail(ii);
         return head;
     }
 
@@ -19,9 +19,7 @@ public class CreateALinkedList {
         Node head = new Node(arr[0]);
         Node p = head;
         for (int i = 1; i < arr.length; i++){
-            Node end = new Node(arr[i]);
-            p.appendToTail(end);
-            p = end;
+            p.appendToTail(arr[i]);
         }
        return head;
     }
